@@ -53,7 +53,7 @@ export abstract class Encoder {
     }
 
     // Next, add additional zeros to make the buffer divisible by 8
-    this.buffer += "0".repeat(this.buffer.length % 8)
+    this.buffer += "0".repeat(8 - (this.buffer.length % 8))
 
     // Finally, add the pad bytes until the buffer is the correct size.
     while (this.buffer.length < totalBits) {

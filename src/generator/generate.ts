@@ -13,7 +13,7 @@ function detectEncodingMode(input: string): EncodingMode {
 
 export function generateQRCode(
   input: string,
-  errorCorrectionLevel: ErrorCorrectionLevel = "L"
+  errorCorrectionLevel: ErrorCorrectionLevel
 ) {
   const encodingMode = detectEncodingMode(input)
 

@@ -20,7 +20,7 @@ export function QRCode({ value }: Props) {
     ctx.fillStyle = "black"
     ctx.clearRect(0, 0, canvasSize, canvasSize)
 
-    drawQRCode(generateQRCode(value), ctx, canvasSize)
+    drawQRCode(generateQRCode(value, "Q"), ctx, canvasSize)
   }, [value])
 
   return (

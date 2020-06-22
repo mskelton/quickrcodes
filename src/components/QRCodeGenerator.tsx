@@ -11,7 +11,6 @@ const wrapperStyle = css`
 
 const inputStyle = css`
   margin-bottom: 32px;
-  width: 100%;
 `
 
 export function QRCodeGenerator() {
@@ -22,7 +21,7 @@ export function QRCodeGenerator() {
     <div css={wrapperStyle}>
       <input
         className="form-control"
-        // css={inputStyle}
+        css={inputStyle}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         autoFocus={true}
