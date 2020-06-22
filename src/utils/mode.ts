@@ -1,9 +1,9 @@
 export type EncodingMode = "numeric" | "alphanumeric" | "byte" | "kanji"
 
-export function detectEncodingMode(value: string): EncodingMode {
-  return /^\d+$/.test(value)
+export function detectEncodingMode(input: string): EncodingMode {
+  return /^\d+$/.test(input)
     ? "numeric"
-    : /^(\d|[A-z]|[$%*+-./: ])+$/.test(value)
+    : /^(\d|[A-z]|[$%*+-./: ])+$/.test(input)
     ? "alphanumeric"
     : "byte"
 }

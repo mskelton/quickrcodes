@@ -4,15 +4,15 @@ import { ErrorCorrectionLevel } from "./error-correction"
 import { encodeCharacterCount } from "./character-count"
 
 export function generateQRCode(
-  value: string,
+  input: string,
   errorCorrectionLevel: ErrorCorrectionLevel = "L"
 ) {
-  const encodingMode = detectEncodingMode(value)
-  const version = detectVersion(value, errorCorrectionLevel)
+  const encodingMode = detectEncodingMode(input)
+  const version = detectVersion(input, encodingMode, errorCorrectionLevel)
 
   let buffer = ""
   buffer += encodeEncodingMode(encodingMode) + " "
-  buffer += encodeCharacterCount(value, encodingMode, version)
+  buffer += encodeCharacterCount(input, encodingMode, version)
 
   return buffer
 }

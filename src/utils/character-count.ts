@@ -33,11 +33,11 @@ function getBitLength(encodingMode: EncodingMode, version: number) {
 }
 
 export function encodeCharacterCount(
-  value: string,
+  input: string,
   encodingMode: EncodingMode,
   version: number
 ) {
-  return value.length
+  return input.length
     .toString(2)
     .padStart(getBitLength(encodingMode, version), "0")
 }

@@ -1,23 +1,21 @@
+import capacities from "./capacities.json"
 import { ErrorCorrectionLevel } from "./error-correction"
 import { EncodingMode } from "./mode"
 
-type Capacities = {
-  [level in ErrorCorrectionLevel]?: {
-    [mode in EncodingMode]?: number
-  }
-}
-
-const capacities: Capacities = {
-  L: {
-    numeric: 41,
-    alphanumeric: 25,
-    byte: 17,
-  },
-}
-
 export function detectVersion(
-  value: string,
+  input: string,
+  encodingMode: EncodingMode,
   errorCorrectionLevel: ErrorCorrectionLevel
 ) {
-  return 40
+  const modeIndex = ["numeric", "alphanumeric", "byte", "kanji"].indexOf(
+    encodingMode
+  )
+
+  for (let i = 0; i < capacities.length; i++) {
+    if (input.length <= capacities[i][errorCorrectionLevel][modeIndex]) {
+      return i + 1
+    }
+  }
+
+  throw new Error("Input is greater than maximum allowed length")
 }
