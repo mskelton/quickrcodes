@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
 import { useEffect, useRef } from "react"
-import { drawQRCode } from "../utils/draw-code"
-import { generateQRCode } from "../utils/generate"
+import { drawQRCode } from "../generator/draw-code"
+import { generateQRCode } from "../generator/generate"
 
 const canvasSize = 300
 

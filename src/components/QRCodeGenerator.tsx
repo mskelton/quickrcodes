@@ -15,7 +15,8 @@ const inputStyle = css`
 `
 
 export function QRCodeGenerator() {
-  const [value, setValue] = useState("https://google.com")
+  // const [value, setValue] = useState("https://google.com")
+  const [value, setValue] = useState("1234")
 
   return (
     <div css={wrapperStyle}>

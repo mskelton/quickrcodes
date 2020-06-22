@@ -1,4 +1,4 @@
-import { EncodingMode } from "./mode"
+import { EncodingMode } from "./encoders/encoder"
 
 const bitLengthMap: Record<
   "Small" | "Medium" | "Large",
@@ -24,20 +24,13 @@ const bitLengthMap: Record<
   },
 }
 
-function getBitLength(encodingMode: EncodingMode, version: number) {
+export function getCharacterCountBitLength(
+  encodingMode: EncodingMode,
+  version: number
+) {
   return version < 10
     ? bitLengthMap.Small[encodingMode]
     : version < 27
     ? bitLengthMap.Medium[encodingMode]
     : bitLengthMap.Large[encodingMode]
-}
-
-export function encodeCharacterCount(
-  input: string,
-  encodingMode: EncodingMode,
-  version: number
-) {
-  return input.length
-    .toString(2)
-    .padStart(getBitLength(encodingMode, version), "0")
 }

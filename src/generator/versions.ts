@@ -1,6 +1,6 @@
 import capacities from "./capacities.json"
+import { EncodingMode } from "./encoders/encoder"
 import { ErrorCorrectionLevel } from "./error-correction"
-import { EncodingMode } from "./mode"
 
 export function detectVersion(
   input: string,
