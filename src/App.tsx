@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
-import { Header } from "./components/Header";
-import { QRCodeGenerator } from "./components/QRCodeGenerator";
+import { jsx } from "@emotion/core"
+import { Header } from "./components/Header"
+import { QRCodeGenerator } from "./components/QRCodeGenerator"
 
 export function App() {
   return (
@@ -13,5 +13,5 @@ export function App() {
         </div>
       </div>
     </div>
-  );
+  )
 }

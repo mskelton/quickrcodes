@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
-import styled from "@emotion/styled";
+import { jsx } from "@emotion/core"
+import styled from "@emotion/styled"
 
 const Colored = styled.span`
   color: #3f51b5;
-`;
+`
 
 export function Header() {
   return (
@@ -13,5 +13,5 @@ export function Header() {
         <Colored>Q</Colored>uick<Colored>R</Colored> Codes
       </h1>
     </header>
-  );
+  )
 }
