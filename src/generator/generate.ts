@@ -1,4 +1,4 @@
-import { createEncoder } from "./encoders/create-encoder"
+import { createEncoder } from "./create-encoder"
 import { EncodingMode } from "./encoders/encoder"
 import { ErrorCorrectionLevel } from "./error-correction"
 import { detectVersion } from "./versions"
