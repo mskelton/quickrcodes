@@ -1,21 +1,21 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { useState } from "react";
-import { QRCode } from "./QRCode";
+import { jsx, css } from "@emotion/core"
+import { useState } from "react"
+import { QRCode } from "./QRCode"
 
 const wrapperStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const inputStyle = css`
   margin-bottom: 32px;
   width: 100%;
-`;
+`
 
 export function QRCodeGenerator() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("https://google.com")
 
   return (
     <div css={wrapperStyle}>
@@ -30,5 +30,5 @@ export function QRCodeGenerator() {
 
       <QRCode value={value} />
     </div>
-  );
+  )
 }

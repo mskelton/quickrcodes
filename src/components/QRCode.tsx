@@ -1,15 +1,35 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import { css, jsx } from "@emotion/core"
+import { useEffect, useRef } from "react"
+import { drawQRCode } from "../utils/draw-code"
+import { generateQRCode } from "../utils/generate"
 
-const canvasStyle = css`
-  height: 300px;
-  width: 300px;
-`;
+const canvasSize = 300
 
 type Props = {
-  value: string;
-};
+  value: string
+}
 
 export function QRCode({ value }: Props) {
-  return <canvas css={canvasStyle}></canvas>;
+  const ref = useRef<HTMLCanvasElement>(null!)
+
+  useEffect(() => {
+    const canvas = ref.current
+    const ctx = canvas.getContext("2d")!
+
+    ctx.fillStyle = "black"
+    ctx.clearRect(0, 0, canvasSize, canvasSize)
+
+    drawQRCode(generateQRCode(value), ctx, canvasSize)
+  }, [value])
+
+  return (
+    <canvas
+      ref={ref}
+      css={css`
+        height: ${canvasSize}px;
+        width: ${canvasSize}px;
+      `}
+    />
+  )
 }
