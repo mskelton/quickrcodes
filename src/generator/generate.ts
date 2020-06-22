@@ -18,7 +18,11 @@ export function generateQRCode(
   const encodingMode = detectEncodingMode(input)
 
   return createEncoder(encodingMode)
-    .with(input, detectVersion(input, encodingMode, errorCorrectionLevel))
+    .with(
+      input,
+      detectVersion(input, encodingMode, errorCorrectionLevel),
+      errorCorrectionLevel
+    )
     .encode()
     .toString()
 }
